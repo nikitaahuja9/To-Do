@@ -12,7 +12,7 @@ export default class ToDo extends Component {
             <div style={{ overflow: 'scroll' }}>
 
                     <div class="header">
-                        TO DO LIST
+                        PERSONAL PLANNER
                         
                     <img src="pencil.png" style={{height:'1em', width:'1.2em'}}/>
                     </div>
@@ -44,10 +44,10 @@ export default class ToDo extends Component {
                         <ResizableBox
                             className="custom-box box"
                             width={window.innerWidth}
-                            height={300}
+                            height={600}
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
                             handleSize={[8, 8]}
-                            style={{fontSize:'18px', fontWeight:'700'}}
+                            style={{fontSize:'16px', fontWeight:'700'}}
                             resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}>
                             <span className="text"><List/></span>
                         </ResizableBox>

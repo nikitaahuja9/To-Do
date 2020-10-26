@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import PopUp from './PopUp';
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 const Todo = props => (
+
     <tr>
-        <td>{props.todo.description}</td>
-        <td>{props.todo.priority}</td>
+        <td className={props.todo.completed ? 'completed' : ''}>{props.todo.description}</td>
+        <td className={props.todo.completed ? 'completed' : ''}>{props.todo.priority}</td>
         <td>
-            <Link to={"/edit/" + props._id}>Edit</Link>
+        <PopUp trigger={<button> Trigger</button>} position="right center">
+            <div>Popup</div>
+        </PopUp>
         </td>
     </tr>
 )
@@ -16,7 +24,9 @@ export default class List extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { todos: [] };
+        this.state = {
+            todos: []
+        };
     }
 
     componentDidMount() {
@@ -29,6 +39,8 @@ export default class List extends Component {
             .catch(function (error) {
                 console.log(error);
             })
+
+
     }
 
     todoList() {
@@ -38,15 +50,16 @@ export default class List extends Component {
     }
 
     render() {
+
         return (
             <div>
-                <h3>Task List</h3>
+                <h5 style={{ marginTop: '10px' }}>Task List</h5>
                 <table className="table table-striped" style={{ marginTop: 20 }}>
                     <thead>
                         <tr>
-                            <th>Description</th>
+                            <th>Task</th>
                             <th>Priority</th>
-                            <th>Actions</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
