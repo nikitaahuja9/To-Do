@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Create extends Component {
 
@@ -12,76 +13,86 @@ export default class Create extends Component {
 
         this.state = {
             description: '',
-            priority:'',
-            completed:''
+            priority: '',
+            completed: false
         }
     }
 
     changeDescription = (e) => {
-        this.setState({description:e.target.value})
+        this.setState({ description: e.target.value })
     }
 
     changePriority = (e) => {
-        this.setState({priority:e.target.value})
+        this.setState({ priority: e.target.value })
     }
 
     changeCompleted = (e) => {
-        this.setState({completed:e.target.value})
+        this.setState({ completed: e.target.value })
     }
 
     onSubmit(e) {
         e.preventDefault()
-        this.setState({description:'', priority:'', completed:''})
+
+        const task = {
+            description: this.state.description,
+            priority: this.state.priority,
+            completed: this.state.completed
+        }
+
+        axios.post('http://localhost:4000/todos/add', task)
+            .then(res => console.log(res.data));
+
+        this.setState({ description: '', priority: '', completed: false })
     }
 
     render() {
         return (
             <div>
-                <h5 style={{marginTop:'5px'}}>Create A Task</h5>
+                <h5 style={{ marginTop: '5px' }}>Create A Task</h5>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <h6 style={{marginLeft:'5px'}}>Description:</h6>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.description}
-                                onChange={this.changeDescription}
-                                />
+                        <h6 style={{ marginLeft: '5px' }}>Description:</h6>
+                        <input type="text"
+                            className="form-control"
+                            value={this.state.description}
+                            onChange={this.changeDescription}
+                        />
                     </div>
-                    
+
                     <div className="form-group">
-                    <h6 style={{marginLeft:'5px'}}>Priority:</h6>
+                        <h6 style={{ marginLeft: '5px' }}>Priority:</h6>
                         <div className="form-check form-check-inline">
-                          
-                            <input  className="form-check-input"
-                                    type="radio"
-                                    name="priorityOptions"
-                                    id="priorityLow"
-                                    value="Low"
-                                    checked={this.state.priority==='Low'}
-                                    onChange={this.changePriority}
-                                    />
+
+                            <input className="form-check-input"
+                                type="radio"
+                                name="priorityOptions"
+                                id="priorityLow"
+                                value="Low"
+                                checked={this.state.priority === 'Low'}
+                                onChange={this.changePriority}
+                            />
                             <label className="form-check-label">  Low</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input  className="form-check-input"
-                                    type="radio"
-                                    name="priorityOptions"
-                                    id="priorityMedium"
-                                    value="Medium"
-                                    checked={this.state.priority==='Medium'}
-                                    onChange={this.changePriority}
-                                    />
+                            <input className="form-check-input"
+                                type="radio"
+                                name="priorityOptions"
+                                id="priorityMedium"
+                                value="Medium"
+                                checked={this.state.priority === 'Medium'}
+                                onChange={this.changePriority}
+                            />
                             <label className="form-check-label">  Medium</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input  className="form-check-input"
-                                    type="radio"
-                                    name="priorityOptions"
-                                    id="priorityHigh"
-                                    value="High"
-                                    checked={this.state.priority==='High'}
-                                    onChange={this.changePriority}
-                                    />
+                            <input className="form-check-input"
+                                type="radio"
+                                name="priorityOptions"
+                                id="priorityHigh"
+                                value="High"
+                                checked={this.state.priority === 'High'}
+                                onChange={this.changePriority}
+                            />
                             <label className="form-check-label">  High</label>
                         </div>
                     </div>

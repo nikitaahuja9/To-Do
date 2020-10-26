@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 
 import { ResizableBox } from 'react-resizable';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
 import Create from './Create.component';
+import List from './List.component';
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import style from '../../src/App.css'
 
 export default class ToDo extends Component {
@@ -51,7 +49,7 @@ export default class ToDo extends Component {
                             handleSize={[8, 8]}
                             style={{fontSize:'18px', fontWeight:'700'}}
                             resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}>
-                            <span className="text">{"Your tasks"}</span>
+                            <span className="text"><List/></span>
                         </ResizableBox>
                     </div>
 
