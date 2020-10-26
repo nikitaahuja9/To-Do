@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import PopUp from './PopUp';
+import PopUp from './PopUp.component';
 
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 const Todo = props => (
-
     <tr>
         <td className={props.todo.completed ? 'completed' : ''}>{props.todo.description}</td>
         <td className={props.todo.completed ? 'completed' : ''}>{props.todo.priority}</td>
         <td>
-        <PopUp trigger={<button> Trigger</button>} position="right center">
-            <div>Popup</div>
-        </PopUp>
+        <PopUp 
+        trigger={<button> Trigger</button>} 
+        position="right center" 
+        task={props.todo._id}
+        description={props.todo.description}
+        priority={props.todo.priority}
+        completed={props.todo.completed}/>
         </td>
     </tr>
 )
@@ -39,8 +41,16 @@ export default class List extends Component {
             .catch(function (error) {
                 console.log(error);
             })
+    }
 
-
+    componentDidUpdate() {
+        axios.get('http://localhost:4000/todos/')
+        .then(response => {
+            this.setState({todos: response.data});
+        })
+        .catch(function (error) {
+            console.log(error);
+        })   
     }
 
     todoList() {

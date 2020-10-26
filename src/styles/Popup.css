@@ -7,15 +7,15 @@
     right: 0;  
     bottom: 0;  
     margin: auto;  
-    background-color:  #4C687F
+    background-color:  #4C687F;
+    padding: 1em
   }  
   .popup\_inner {  
-    position: absolute;  
+    position: relative;  
     left: 25%;  
     right: 25%;  
     top: 25%;  
     bottom: 25%;  
-    margin: auto;  
     border-radius: 20px;  
-    background-color:  #4C687F;  
+    background-color:  #4C687F
   }

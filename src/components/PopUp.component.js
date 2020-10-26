@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Popup.css';
 
-import PopUpContent from './PopUpContent';
+import PopUpContent from './PopUpContent.component';
 
 export default class PopUp extends React.Component {
 
@@ -10,7 +10,7 @@ export default class PopUp extends React.Component {
         this.state = { showPopup: false };  
         }  
         
-          togglePopup() {  
+        togglePopup() {  
         this.setState({  
              showPopup: !this.state.showPopup  
         });  
@@ -24,6 +24,10 @@ export default class PopUp extends React.Component {
                 {this.state.showPopup ?
                     <PopUpContent
                         closePopup={this.togglePopup.bind(this)}
+                        task={this.props.task}
+                        description={this.props.description}
+                        priority={this.props.priority}
+                        completed={this.props.completed}
                     />
                     : null
                 }
