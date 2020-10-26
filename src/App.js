@@ -48,32 +48,37 @@ export default class App extends Component {
         });
     };
 
-
     render() {
 
         return (
             <div className='container'>
 
-                <div style={{ overflow: 'scroll', justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{ overflow: 'scroll' }}>
+
+                    <div class="header">
+                        TO DO LIST
+                        
+                    <img src="pencil.png" style={{height:'1em', width:'1.2em'}}/>
+                    </div>
 
                     <div className="layoutRoot">
                         <ResizableBox
                             className="custom-box box"
                             width={window.innerWidth * 0.3}
-                            height={300}
+                            height={250}
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
                             handleSize={[8, 8]}
                             resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}>
-                            <span className="text">{"<ResizableBox> with custom handles in all locations."}</span>
+                            <span className="text">{"One"}</span>
                         </ResizableBox>
                         <ResizableBox
                             className="custom-box box"
                             width={window.innerWidth * 0.63}
-                            height={300}
+                            height={250}
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
                             handleSize={[8, 8]}
                             resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}>
-                            <span className="text">{"<ResizableBox> with custom handles in all locations."}</span>
+                            <span className="text">{"Two"}</span>
                         </ResizableBox>
                     </div>
 
@@ -85,8 +90,12 @@ export default class App extends Component {
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
                             handleSize={[8, 8]}
                             resizeHandles={['sw', 'se', 'nw', 'ne', 'w', 'e', 'n', 's']}>
-                            <span className="text">{"<ResizableBox> with custom handles in all locations."}</span>
+                            <span className="text">{"Three"}</span>
                         </ResizableBox>
+                    </div>
+
+                    <div class="footer">
+                        <p>Copyright © 2020</p>
                     </div>
 
                 </div>

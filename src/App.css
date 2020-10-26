@@ -7,7 +7,8 @@ body {
   height: 100vh;
   display: flex;
   flex-flow: nowrap column;
-  overflow:hidden
+  overflow:hidden;
+  background-color:  #4C687F;
 }
 
 .panel {    
@@ -18,46 +19,10 @@ body {
 
 .header {
   background: #4C687F;
-  min-height: 50px;
-  height: 100%
-}
-
-.to-do {
-  font-size: 25px;
-  color: white;
-  font-weight: 600;
-}
-
-.footer {
-  background: #4C687F;
-  height: 100%;
-  display:flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
   text-align: center;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-.footerArea{
-  flex-grow: 1;
-  display: flex;
-  min-height: 100px;
-  flex-flow: column;
-  overflow-y: auto;
-}
-.footerAreaContent {
-  min-height: 500px;
-}
-.footerBottomBar {
-  background: #4C687F;
-  color: white;
-  padding: 10px
-}
-.body {
-  background: gray;
-  flex-grow: 3;
-  display: flex;
-  flex-flow: row nowrap;
+  color:white;
+  font-weight: 600;
+  font-size: 40px;
 }
 
 .sideBarResizeContainer {
@@ -114,11 +79,11 @@ body {
 
 .layoutRoot {
   display: flex;
-  background: #eee;
-  margin-bottom: 20px;
+  background: #4C687F;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding-bottom: 30px;
 }
 .absoluteLayout {
   height: 600px;
@@ -138,10 +103,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #ccc;
+  background:#b9c5cf;
   border: 1px solid black;
   text-align: center;
-  padding: 10px;
   box-sizing: border-box;
   margin-bottom: 10px;
   overflow: hidden;
@@ -228,4 +192,14 @@ body {
 }
 .custom-handle-s {
   bottom: -4px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #4C687F;
+  color: white;
+  text-align: center;
 }
