@@ -2,7 +2,7 @@ body {
   margin: 0px;
 }
 
-.container {
+.my-container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -23,6 +23,7 @@ body {
   color:white;
   font-weight: 600;
   font-size: 40px;
+  margin-top: 0.5em;
 }
 
 .sideBarResizeContainer {
@@ -80,16 +81,11 @@ body {
 .layoutRoot {
   display: flex;
   background: #4C687F;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   padding-bottom: 30px;
 }
 .absoluteLayout {
   height: 600px;
-  position: relative;
-  justify-content: center;
-  align-items: center;
 }
 .scaledLayout {
   width: 125%;
@@ -100,20 +96,18 @@ body {
 
 .box {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   background:#b9c5cf;
   border: 1px solid black;
-  text-align: center;
   box-sizing: border-box;
   margin-bottom: 10px;
-  overflow: hidden;
   position: relative;
-  margin: 20px;
+  margin: 20px
 }
 .box .text {
-  text-align: center;
+  text-align: left;
+  padding-left: 10px;
+  padding-right:10px
 }
 
 .hover-handles .react-resizable-handle {
@@ -194,8 +188,8 @@ body {
   bottom: -4px;
 }
 
-.footer {
-  position: fixed;
+.my-footer {
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
