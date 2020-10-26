@@ -1,38 +1,231 @@
-.App {
+body {
+  margin: 0px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: nowrap column;
+  overflow:hidden
+}
+
+.panel {    
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.header {
+  background: #4C687F;
+  min-height: 50px;
+  height: 100%
+}
+
+.to-do {
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+}
+
+.footer {
+  background: #4C687F;
+  height: 100%;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  text-align: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.footerArea{
+  flex-grow: 1;
+  display: flex;
+  min-height: 100px;
+  flex-flow: column;
+  overflow-y: auto;
+}
+.footerAreaContent {
+  min-height: 500px;
+}
+.footerBottomBar {
+  background: #4C687F;
+  color: white;
+  padding: 10px
+}
+.body {
+  background: gray;
+  flex-grow: 3;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.sideBarResizeContainer {
+  width: 30%;
+}
+.sidebar {
+  background: #7F9BB2;
+  min-width: 200px;
+  width: 400px;
+  width:100%;
+  box-sizing: border-box;
+  text-align: center;
+  flex-grow: 1;
+}
+
+
+.withMargin {
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.content {
+  flex-grow: 1;  
+  background:#4C687F 
+}
+
+.customHandle {
+  cursor: ew-resize;
+  width: 10px;
+  height: 10px;
+  margin: 0px -5px;
+  background: lightblue;
+  border: 2px solid gray;
+  border-radius: 2px;
+  text-align: center;
+  z-index: 99999;
+  overflow: hidden;
+  display: flex;
+  align-items: center ;
+}
+
+.customResizeBorder {
+  cursor: ew-resize;
+  width: 5px;
+  background: gray;
+  display: flex;
+  z-index: 99999;
+  align-items: center ;
+  align-content: center ;
+  justify-content: center;
+  overflow: visible;
+
+}
+
+.layoutRoot {
+  display: flex;
+  background: #eee;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.absoluteLayout {
+  height: 600px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.scaledLayout {
+  width: 125%;
+  left: -12.5%;
+  transform: scale(0.75);
+  margin-top: -7.5%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #ccc;
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 20px;
+}
+.box .text {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hover-handles .react-resizable-handle {
+  display: none;
+}
+.hover-handles:hover .react-resizable-handle {
+  display: block;
+}
+.absolutely-positioned {
+  position: absolute !important;
+}
+.left-aligned {
+  left: 0;
+}
+.right-aligned {
+  right: 0;
+}
+.top-aligned {
+  top: 0;
+}
+.bottom-aligned {
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.custom-box {
+  overflow: visible;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.custom-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #1153aa;
+  opacity: 0.75;
+  border-radius: 4px;
 }
-
-.App-link {
-  color: #61dafb;
+.custom-handle-sw {
+  bottom: -4px;
+  left: -4px;
+  cursor: sw-resize;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-handle-se {
+  bottom: -4px;
+  right: -4px;
+  cursor: se-resize;
+}
+.custom-handle-nw {
+  top: -4px;
+  left: -4px;
+  cursor: nw-resize;
+}
+.custom-handle-ne {
+  top: -4px;
+  right: -4px;
+  cursor: ne-resize;
+}
+.custom-handle-w,
+.custom-handle-e {
+  top: 50%;
+  margin-top: -4px;
+  cursor: ew-resize;
+}
+.custom-handle-w {
+  left: -4px;
+}
+.custom-handle-e {
+  right: -4px;
+}
+.custom-handle-n,
+.custom-handle-s {
+  left: 50%;
+  margin-left: -4px;
+  cursor: ns-resize;
+}
+.custom-handle-n {
+  top: -4px;
+}
+.custom-handle-s {
+  bottom: -4px;
 }
