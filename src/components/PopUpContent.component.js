@@ -77,7 +77,7 @@ export default class PopUpContent extends Component {
         axios.post('http://localhost:4000/todos/update/'+this.state.id, params)
             .then(res =>
 
-                console.log('HEYYY' + res.data),
+                console.log("Number of updations: " + res.data),
                 this.props.closePopup())
 
     }

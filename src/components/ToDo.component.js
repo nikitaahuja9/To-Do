@@ -1,15 +1,18 @@
 //Main file comprising of three resizable boxes
 //Links to - Create task Component, List of tasks Component
+//Keeps track of count of additions and updations
 
 import React, { Component } from "react";
 
 import { ResizableBox } from 'react-resizable';
+
 import Create from './Create.component';
 import List from './List.component';
 
 import style from '../../src/App.css'
 
 export default class ToDo extends Component {
+
     render() {
         return (
             <div style={{ overflow: 'scroll' }}>

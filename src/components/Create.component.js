@@ -42,7 +42,8 @@ export default class Create extends Component {
         }
 
         axios.post('http://localhost:4000/todos/add', task)
-            .then(res => console.log(res.data));
+            .then(res => 
+                console.log("Number of additions:" + res.data));
 
         this.setState({ description: '', priority: '', completed: false })
     }

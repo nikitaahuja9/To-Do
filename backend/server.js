@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+
 const todoRoutes = express.Router();
 const PORT = 4000;
 
 let Todo = require('./todo.model');
+
+let add_count = 0;
+let update_count = 0;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,6 +23,7 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+//API for the Task List
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {
@@ -28,6 +34,7 @@ todoRoutes.route('/').get(function(req, res) {
     });
 });
 
+//Get item by ID
 todoRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
     Todo.findById(id, function(err, todo) {
@@ -35,18 +42,26 @@ todoRoutes.route('/:id').get(function(req, res) {
     });
 });
 
+//Execution time for Add API calculated
+//Count noted in add_count variable
 todoRoutes.route('/add').post(function(req, res) {
+    console.time("dbsave");
     let todo = new Todo(req.body);
     todo.save()
         .then(todo => {
-            res.status(200).json({'todo': 'todo added successfully'});
+            add_count = add_count + 1;
+            console.timeEnd("dbsave");
+            res.json(add_count);
         })
         .catch(err => {
             res.status(400).send('adding new todo failed');
         });
 });
 
+//Execution time for Update API calculated
+//Count noted in update_count variable
 todoRoutes.route('/update/:id').post(function(req, res) {
+    console.time("dbsave");
     Todo.findById(req.params.id, function(err, todo) {
         if (!todo)
             res.status(404).send('data is not found');
@@ -56,7 +71,9 @@ todoRoutes.route('/update/:id').post(function(req, res) {
             todo.completed = req.body.completed;
 
             todo.save().then(todo => {
-                res.json('Todo updated');
+                update_count = update_count + 1;
+                console.timeEnd("dbsave");
+                res.json(update_count);
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
