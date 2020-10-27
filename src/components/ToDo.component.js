@@ -1,3 +1,6 @@
+//Main file comprising of three resizable boxes
+//Links to - Create task Component, List of tasks Component
+
 import React, { Component } from "react";
 
 import { ResizableBox } from 'react-resizable';
@@ -20,7 +23,6 @@ export default class ToDo extends Component {
                     <div className="layoutRoot">
                         <ResizableBox
                             className="custom-box box"
-                            width={window.innerWidth * 0.3}
                             height={250}
                             style={{fontSize:'18px', fontWeight:'700', justifyContent:'center', alignItems:'center', textalign:'center'}}
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
@@ -30,7 +32,7 @@ export default class ToDo extends Component {
                         </ResizableBox>
                         <ResizableBox
                             className="custom-box box"
-                            width={window.innerWidth * 0.63}
+                            width={900}
                             height={250}
                             handle={(h) => <span className={`custom-handle custom-handle-${h}`} />}
                             handleSize={[8, 8]}

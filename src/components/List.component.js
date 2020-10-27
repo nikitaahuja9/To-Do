@@ -1,3 +1,6 @@
+//List of tasks
+//Links to Edit a task component
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';

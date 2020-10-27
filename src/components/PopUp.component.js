@@ -1,9 +1,11 @@
-import React from 'react';
+//Handle Pop Up component
+
+import React, {Component} from 'react';
 import '../styles/Popup.css';
 
 import PopUpContent from './PopUpContent.component';
 
-export default class PopUp extends React.Component {
+export default class PopUp extends Component {
 
     constructor(props){  
         super(props);  
